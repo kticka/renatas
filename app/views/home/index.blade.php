@@ -1,25 +1,20 @@
 @extends('layout')
 
 @section('content')
-	
-	<div class="row">
-
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="row collapse">
-        <div class="small-10 columns">
-          <input type="text" name="nickname" placeholder="Hex Value">
-        </div>
-        <div class="small-2 columns">
-          <a href="#" class="button postfix">Go</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
 	{{ Form::open(['route' => 'home.player']) }}
-		<input type="text" name="nickname">
-		<button type="submit" class="button radius tiny">Search</button>
+
+	  <div class="row">
+	    <div class="small-12 medium-12 large-12 columns">
+	      <div class="row collapse postfix-radius">
+	        <div class="small-10 medium-10 large-10 columns">
+	          <input class="radius" type="text" name="nickname" placeholder="Enter summoner name">
+	        </div>
+	        <div class="small-2 medium-2 large-2 columns" >
+	          <input type="submit" class="button postfix" value="Search">
+	        </div>
+	      </div>
+	    </div>
+	  </div>
 	{{ Form::close() }}
 
 	@if (isset($user)) 

@@ -8,12 +8,12 @@
 	<body>
 
 
-	<audio autoplay>
+	<audio autoplay loop>
 	  <source src="assets/media/New Summoner's Rift Theme Song (League of Legends).mp3" type="audio/ogg">
 	</audio>
 
 	<div class="container">
-		<div class="row">
+		<div class="row header">
 			<div class="small-12 medium-12 large-12 columns">
 				<img src="{{ asset('assets/media/header.jpg') }}">
 			</div>
