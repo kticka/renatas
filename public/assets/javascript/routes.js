@@ -8,7 +8,7 @@
     }
   }('Router', function() {
   return {
-    routes: [{"uri":"\/","name":"root"},{"uri":"search\/getplayer\/{player}","name":"internal.getplayer"},{"uri":"search\/autocomplete","name":"internal.autocomplete"}],
+    routes: [{"uri":"\/","name":"root"},{"uri":"search\/getplayer\/{player}\/{region}","name":"internal.getplayer"},{"uri":"search\/autocomplete","name":"internal.autocomplete"}],
     route: function(name, params) {
       var route = this.searchRoute(name),
           rootUrl = this.getRootUrl(),

@@ -13,5 +13,5 @@
 
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'root']);
 
-Route::get('search/getplayer/{player}', ['uses' => 'InternalController@getPlayer', 'as' => 'internal.getplayer']);
+Route::get('search/getplayer/{player}/{region}', ['uses' => 'InternalController@getPlayer', 'as' => 'internal.getplayer']);
 Route::get('search/autocomplete', ['uses' => 'InternalController@autocomplete', 'as' => 'internal.autocomplete']);

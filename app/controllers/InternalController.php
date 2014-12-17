@@ -20,8 +20,8 @@ class InternalController extends BaseController {
 		return View::make('home.index');
 	}
 
-	public function getPlayer($player) {
-		$api = new Riot($player);	
+	public function getPlayer($player, $region) {
+		$api = new Riot($player, $region);	
 		$data['player'] = $api->user;
 		if ($api->user) { 
 			if (SearchLog::where(['username' => $api->user['name']])->count() < 1) {

@@ -1,4 +1,8 @@
-current_audio = document.getElementById('soundtrack');
+var current_audio = document.getElementById('soundtrack');
+var regions = {
+  'EUW' : ['GB','DE','DK'],
+  'EUNE': ['LT','NO','SE']
+};
 
 current_audio.onended = function() {
 	switch_audio();
@@ -13,6 +17,18 @@ function switch_audio() {
 	$('.fa-play').removeClass('fa-play').addClass('fa-pause');
 	current_audio.play();
 }
+
+function findRegion(code) {
+  current_region = false;
+  $.each(regions, function(region, countries) { 
+    if ($.inArray(code, countries) > -1) {
+      current_region = region;
+    }
+  });
+  return current_region;
+}
+
+
 
 $(document).ready(function() {
   $( "#search-autocomplete" ).autocomplete({
@@ -35,7 +51,26 @@ $(document).ready(function() {
 
   $('#search').click(function() {
   	console.log('eina');
-  	$("#data").load(Router.route('internal.getplayer', {player: $('#search-autocomplete').val()}));
+  	$("#data").load(Router.route('internal.getplayer', {player: $('#search-autocomplete').val(), region: $('#region').val()}));
   })
+
+  $('#autoselect-region').click(function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          $.getJSON('http://ws.geonames.org/countryCode', {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+              username: 'errant',
+              type: 'JSON'
+          }, function(result) {
+            region = findRegion(result.countryCode);
+            if (region) {
+              $('#region').val(region);
+            }
+          });
+      });
+    }
+  });
+
 });
 

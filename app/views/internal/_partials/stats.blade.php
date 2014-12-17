@@ -4,19 +4,10 @@
 		<tr><th>Type</th><th>Wins</th></tr>
 		<tr><td>{{ $stat['playerStatSummaryType'] }}</td><td>{{ $stat['wins'] }}</td></tr>
 		@if (count($stat['aggregatedStats']) > 0)
-			<tr><td colspan="2">
-				<table width="100%">
-					<tr>
-						@foreach(array_keys($stat['aggregatedStats']) as $name)
-							<th>{{ $name }}</th>
-						@endforeach
-					</tr>
-					<tr>
-						@foreach($stat['aggregatedStats'] as $details)
-							<td>{{ $details }}</td>
-						@endforeach
-					</tr>
-				</table>
+			<tr><th>Name</th><th>Count</th></tr>
+			@foreach($stat['aggregatedStats'] as $key => $details)
+				<tr><td><b>{{$key}}</b></td><td>{{$details}}</td></tr>
+			@endforeach
 		@endif
 		</td></tr>
 		</table>
