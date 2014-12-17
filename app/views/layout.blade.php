@@ -11,10 +11,10 @@
 
 
 	<audio autoplay loop id="soundtrack">
-	  <source src="{{ asset('assets/media/League of Legends - Summoner\'s Rift Music - Background.mp3') }}" type="audio/ogg">
+	  <source src="{{ asset('assets/media/League of Legends - Summoner\'s Rift Music - Background.mp3') }}" type="audio/mp3">
 	</audio>
 	<audio loop id="soundtrack2">
-	  <source src="{{ asset('assets/media/New Summoner\'s Rift Theme Song (League of Legends).mp3') }}" type="audio/ogg">
+	  <source src="{{ asset('assets/media/New Summoner\'s Rift Theme Song (League of Legends).mp3') }}" type="audio/mp3">
 	</audio>
 
 	<div class="container">
