@@ -63,6 +63,7 @@ $(document).ready(function() {
               username: 'errant',
               type: 'JSON'
           }, function(result) {
+            console.log(result);
             region = findRegion(result.countryCode);
             if (region) {
               $('#region').val(region);
